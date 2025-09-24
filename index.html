@@ -1,9 +1,8 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Perfil do Usuário</title>
-    <meta name="viewport" content="width=device-mobile
+    <meta name="viewport" content="width=device-mobile">
     <meta charset=" UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cartão de Saúde</title>
@@ -17,12 +16,6 @@
         }
 
         body {
-            font-family: Arial, sans-serif;
-            max-width: 500px;
-            margin: 40px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
             background: linear-gradient(135deg, #ff8c00, #000000);
             display: flex;
             justify-content: center;
@@ -30,7 +23,6 @@
             height: 100vh;
         }
 
-        h1 {
         .card {
             background: #fff;
             padding: 30px 40px;
@@ -62,8 +54,6 @@
             color: #333;
         }
 
-        p {
-            margin: 10px 0;
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -76,8 +66,6 @@
             }
         }
 
-        strong {
-            color: #444;
         /* Extra: borda de destaque */
         .highlight {
             background: #ffeed8;
@@ -90,63 +78,6 @@
 </head>
 
 <body>
-    <h1>Perfil do Usuário</h1>
-    <p><strong>Nome:</strong> <span id="nome"></span></p>
-    <p><strong>Idade:</strong> <span id="idade"></span></p>
-    <p><strong>Tipo Sanguíneo:</strong> <span id="tipoSangue"></span></p>
-    <p><strong>Alergias:</strong> <span id="alergias"></span></p>
-    <p><strong>Doenças:</strong> <span id="doencas"></span></p>
-    <p><strong>Medicamentos:</strong> <span id="medicamentos"></span></p>
-    <p><strong>Doador de Órgãos:</strong> <span id="orgaos"></span></p>
-    <p><strong>Plano de Saúde:</strong> <span id="planoSaude"></span></p>
-
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
-        import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-database.js";
-
-        // Configuração do Firebase (mesma do teu projeto)
-        const firebaseConfig = {
-            apiKey: "AIzaSyDvQNT-V87FJ2xb3gdnq6taD4RsvAhjmm8",
-            authDomain: "regenera-9b38e.firebaseapp.com",
-            projectId: "regenera-9b38e",
-            storageBucket: "regenera-9b38e.firebasestorage.app",
-            messagingSenderId: "32007036125",
-            appId: "1:32007036125:web:1a5a313eabb271f1a00f34",
-            measurementId: "G-D3VJGTFSM5",
-            databaseURL: "https://regenera-9b38e-default-rtdb.firebaseio.com/"
-        };
-
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
-
-        // Pega o UID da URL
-        const params = new URLSearchParams(window.location.search);
-        const userId = params.get("id");
-
-        if (userId) {
-            const userRef = ref(db, "usuarios/" + userId);
-            get(userRef).then((snapshot) => {
-                if (snapshot.exists()) {
-                    const dados = snapshot.val();
-                    document.getElementById("nome").innerText = dados.nome || "Não informado";
-                    document.getElementById("idade").innerText = dados.idade || "Não informado";
-                    document.getElementById("tipoSangue").innerText = dados.tipoSangue || "Não informado";
-                    document.getElementById("alergias").innerText = dados.alergias || "Nenhuma";
-                    document.getElementById("doencas").innerText = dados.doencas || "Nenhuma";
-                    document.getElementById("medicamentos").innerText = dados.medicamentos || "Nenhum";
-                    document.getElementById("orgaos").innerText = dados.doadorOrgaos ? "Sim" : "Não";
-                    document.getElementById("planoSaude").innerText = dados.planoSaude || "Não informado";
-                } else {
-                    document.body.innerHTML = "<h2>Usuário não encontrado</h2>";
-                }
-            }).catch((error) => {
-                console.error(error);
-                document.body.innerHTML = "<h2>Erro ao carregar dados</h2>";
-            });
-        } else {
-            document.body.innerHTML = "<h2>Link inválido</h2>";
-        }
-    </script>
     <div class="card">
         <h1>informações médicas</h1>
         <div class="info">
@@ -160,9 +91,6 @@
             <p><strong>Doador de Órgãos:</strong> <span id="orgaos"></span></p>
             <p><strong>Plano de Saúde:</strong> <span id="planoSaude"></span></p>
 
-            <div class="highlight">
-                <p><strong>contato de Emergência:</strong> <span id="planoSaude"></span></p>
-            </div>
         </div>
     </div>
 </body>
@@ -206,7 +134,6 @@
                 document.getElementById("medicamentos").innerText = dados.medicamentos || "Nenhum";
                 document.getElementById("orgaos").innerText = dados.doadorOrgaos ? "Sim" : "Não";
                 document.getElementById("planoSaude").innerText = dados.planoSaude || "Não informado";
-                
             } else {
                 document.body.innerHTML = "<h2>Usuário não encontrado</h2>";
             }
@@ -220,5 +147,4 @@
 </script>
 </body>
 
-</html>
 </html>
