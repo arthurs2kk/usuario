@@ -81,7 +81,7 @@
     <div class="card">
         <h1>informações médicas</h1>
         <div class="info">
-            
+            <h1>Perfil do Usuário</h1>
             <p><strong>Nome:</strong> <span id="nome"></span></p>
             <p><strong>Idade:</strong> <span id="idade"></span></p>
             <p><strong>Tipo Sanguíneo:</strong> <span id="tipoSangue"></span></p>
@@ -90,6 +90,12 @@
             <p><strong>Medicamentos:</strong> <span id="medicamentos"></span></p>
             <p><strong>Doador de Órgãos:</strong> <span id="orgaos"></span></p>
             <p><strong>Plano de Saúde:</strong> <span id="planoSaude"></span></p>
+
+            <div class="highlight">
+                <p><strong>Contato de Emergência:</strong><br>
+                    <span id="numEmer"></span>
+                </p>
+            </div>
 
         </div>
     </div>
@@ -134,6 +140,7 @@
                 document.getElementById("medicamentos").innerText = dados.medicamentos || "Nenhum";
                 document.getElementById("orgaos").innerText = dados.doadorOrgaos ? "Sim" : "Não";
                 document.getElementById("planoSaude").innerText = dados.planoSaude || "Não informado";
+                document.getElementById("numEmer").innerText = dados.numEmer || "Não informado";
             } else {
                 document.body.innerHTML = "<h2>Usuário não encontrado</h2>";
             }
@@ -148,4 +155,3 @@
 </body>
 
 </html>
-
